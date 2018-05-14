@@ -2,7 +2,7 @@
 
 #### Synopsis
 
-You can clone or download this script them run and update your distro
+You can clone or download this script them run and update your distro:
 
 ```bash
 https://github.com/m0zgen/update-fedora-to-next-release.git
@@ -15,7 +15,9 @@ Run script:
 ./update-release.sh
 ```
 
-Script determine your distro and ask you from update, you can run from script:
+Script determine your distro and ask you from update.
+
+You can run from script:
 * Script determine who are you - root or not
 * You can use from scipt - dnf clean all and dnf distro-sync --refresh
 * Update your system
