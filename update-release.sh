@@ -33,10 +33,17 @@ if [[ -e /etc/fedora-release ]]; then
     # Increment release number
     (( CURRENT_RELEASE++ ))
     echo -e "Update to $CURRENT_RELEASE...\n"
+    # Clean dnf cache
+    echo -en "Clean dfn cache(${GREEN}y${CL}/${RED}n${CL})? "
+    read answer
+    if echo "$answer" | grep -iq "^y" ;then
+      dnf clean all
+      dnf distro-sync --refresh
+    fi
     # Update release
-    dnf upgrade --refresh
+    dnf upgrade --refresh -y
     dnf install dnf-plugin-system-upgrade -y
-    dnf system-upgrade download --releasever=$CURRENT_RELEASE
+    dnf system-upgrade download --releasever=$CURRENT_RELEASE -y
     # Question for reboot
     echo -en "reboot(${GREEN}y${CL}/${RED}n${CL})? "
     read answer
